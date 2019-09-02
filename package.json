@@ -1,0 +1,47 @@
+{
+  "name": "broken",
+  "version": "0.0.0",
+  "description": "Broken",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "nyc mocha",
+    "test:ci": "nyc --reporter html --reporter text-summary --all mocha",
+    "test:mutation": "stryker run"
+  },
+  "nyc": {
+    "include": [
+        "lib/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^2.0.2",
+    "@stryker-mutator/mocha-framework": "^2.0.2",
+    "@stryker-mutator/mocha-runner": "^2.0.2",
+    "@stryker-mutator/typescript": "^2.0.2",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "nyc": "^13.2.0",
+    "stryker-cli": "^1.0.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.3.3"
+  },
+  "engines": {
+    "node": ">= 10.15.0",
+    "yarn": ">= 1.12.3"
+  }
+}
